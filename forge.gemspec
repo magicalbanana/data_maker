@@ -20,8 +20,8 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 1.9.3'
 
-  gem.bindir = 'bin'
-  gem.executables << 'forge-console'
+  # gem.bindir = 'bin'
+  # gem.executables << 'forge-console'
 
   gem.extra_rdoc_files = ['README.md']
   gem.post_install_message = "To test out the generator execute command forge-console"
