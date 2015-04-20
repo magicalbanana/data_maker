@@ -18,16 +18,21 @@ Gem::Specification.new do |gem|
    respecetively.
   EOT
 
-  gem.required_ruby_version = '>= 1.9.3'
 
+  gem.extra_rdoc_files = ['README.md']
   # gem.bindir = 'bin'
   # gem.executables << 'forge-console'
 
-  gem.extra_rdoc_files = ['README.md']
+
+  gem.add_development_dependency 'rake', '~> 10.1.1'
+
+  gem.add_runtime_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
+
   gem.post_install_message = "To test out the generator execute command forge-console"
+
+  gem.required_ruby_version = '>= 1.9.3'
 
   gem.require_path = 'lib'
   gem.files         = `git ls-files -- lib/*`.split("\n") 
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.add_runtime_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
 end
