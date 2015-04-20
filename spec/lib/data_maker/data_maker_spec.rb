@@ -5,7 +5,7 @@ RSpec.describe DataMaker do
 
   describe "#VERSION" do
     # For each iteration of a version this would always get changed.
-    let(:current_version) { "1.0.0" }
+    let(:current_version) { "2.0.0" }
 
     it { expect(described_class).to be_const_defined(:VERSION) }
     it { expect(described_class::VERSION).to eq(current_version) }

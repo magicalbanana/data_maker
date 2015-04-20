@@ -1,5 +1,5 @@
 module DataMaker
-  VERSION = "1.0.0"
+  VERSION = "2.0.0"
 
   require 'data_maker/utilities/array_utilities'
   require 'data_maker/utilities/module_utilities'
