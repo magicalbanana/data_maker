@@ -18,11 +18,9 @@ Gem::Specification.new do |gem|
    respecetively.
   EOT
 
-
   gem.extra_rdoc_files = ['README.md']
   # gem.bindir = 'bin'
   # gem.executables << 'forge-console'
-
 
   gem.add_development_dependency 'simplecov', '>= 0.8.2'
   gem.add_development_dependency 'coveralls', '>= 0.7.0' 
