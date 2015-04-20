@@ -45,19 +45,19 @@ Gem::Specification.new do |gem|
     LICENSE
     README.md
     Rakefile
-    forge.gemspec
-    lib/forge.rb
-    lib/forge/china/phone_number.rb
-    lib/forge/data/china/phone_number/landline_phone_prefixes
-    lib/forge/data/china/phone_number/mobile_phone_prefixes
-    lib/forge/utilities/array_utilities.rb
-    lib/forge/utilities/module_utilities.rb
-    lib/forge/validators/chinese_phone_number.rb
-    spec/lib/forge/china/phone_number_spec.rb
-    spec/lib/forge/forge_spec.rb
-    spec/lib/forge/support/matchers/phone_number_matcher.rb
-    spec/lib/forge/utilities/array_utilities_spec.rb
-    spec/lib/forge/utilities/module_utilities_spec.rb
+    data_maker.gemspec
+    lib/data_maker.rb
+    lib/data_maker/china/phone_number.rb
+    lib/data_maker/data/china/phone_number/landline_phone_prefixes
+    lib/data_maker/data/china/phone_number/mobile_phone_prefixes
+    lib/data_maker/utilities/array_utilities.rb
+    lib/data_maker/utilities/module_utilities.rb
+    lib/data_maker/validators/chinese_phone_number.rb
+    spec/lib/data_maker/china/phone_number_spec.rb
+    spec/lib/data_maker/data_maker_spec.rb
+    spec/lib/data_maker/support/matchers/phone_number_matcher.rb
+    spec/lib/data_maker/utilities/array_utilities_spec.rb
+    spec/lib/data_maker/utilities/module_utilities_spec.rb
     spec/spec_helper.rb
   ]
   # = MANIFEST =
