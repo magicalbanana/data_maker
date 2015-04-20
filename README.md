@@ -13,8 +13,7 @@ generation of data for Chinese related records.
 
 I made this intentionally so I could keep adding without the need for the author
 to constantly be annoyed with my pull requests.
-
-[Gem Version]: https://rubygems.org/gems/data_maker
+[Gem Version]: https://badge.fury.io/rb/data_maker
 [Build Status]: https://travis-ci.org/magicalbanana/data_maker
 [travis pull requests]: https://travis-ci.org/magicalbanana/data_maker/pull_requests
 [Dependency Status]: https://gemnasium.com/magicalbanana/data_maker
