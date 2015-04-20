@@ -26,7 +26,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'coveralls', '~> 0.7.0', '>= 0.7.0' 
   gem.add_development_dependency 'rake', '10.1.1', '>= 10.1.1'
   gem.add_development_dependency 'rspec', '~> 3.1.0', '>= 3.1.0'
-  gem.add_development_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
   gem.add_development_dependency 'pry-byebug', '~> 3.1.0', '>= 3.1.0'
   gem.add_development_dependency 'pry-rescue', '~> 1.4.1', '>= 1.4.1'
   gem.add_development_dependency 'pry-stack_explorer', '~> 0.4.9.1', '>= 0.4.9.1'
