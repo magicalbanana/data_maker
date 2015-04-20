@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Forge do
+RSpec.describe DataMaker do
   let(:masks) { value }
 
   describe "#VERSION" do

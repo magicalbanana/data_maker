@@ -1,4 +1,4 @@
-module Forge
+module DataMaker
   module ArrayUtilities
     def self.const_array(argument)
       array = argument.is_a?(Array) ? argument : argument.to_a

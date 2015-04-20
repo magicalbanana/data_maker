@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Forge::ArrayUtilities do
+RSpec.describe DataMaker::ArrayUtilities do
   let(:array_utilities) { described_class }
 
   describe "#self.const_array" do
