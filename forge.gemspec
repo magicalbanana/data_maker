@@ -37,6 +37,28 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.require_path = 'lib'
-  gem.files         = `git ls-files -- lib/*`.split("\n") 
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+
+  # = MANIFEST =
+  gem.files = %w[
+    Gemfile
+    LICENSE
+    README.md
+    Rakefile
+    forge.gemspec
+    lib/forge.rb
+    lib/forge/china/phone_number.rb
+    lib/forge/data/china/phone_number/landline_phone_prefixes
+    lib/forge/data/china/phone_number/mobile_phone_prefixes
+    lib/forge/utilities/array_utilities.rb
+    lib/forge/utilities/module_utilities.rb
+    lib/forge/validators/chinese_phone_number.rb
+    spec/lib/forge/china/phone_number_spec.rb
+    spec/lib/forge/forge_spec.rb
+    spec/lib/forge/support/matchers/phone_number_matcher.rb
+    spec/lib/forge/utilities/array_utilities_spec.rb
+    spec/lib/forge/utilities/module_utilities_spec.rb
+    spec/spec_helper.rb
+  ]
+  # = MANIFEST =
 end
