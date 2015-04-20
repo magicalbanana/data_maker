@@ -1,8 +1,8 @@
-module Forge
+module DataMaker
   VERSION = "1.0.0"
 
-  require 'forge/utilities/array_utilities'
-  require 'forge/utilities/module_utilities'
+  require 'data_maker/utilities/array_utilities'
+  require 'data_maker/utilities/module_utilities'
 
   extend ModuleUtilities
 
@@ -47,7 +47,7 @@ module Forge
   end
 
   # Load all constants.
-  Dir["#{BASE_LIB_PATH}/forge/**/*.rb"].sort.each do |f|
+  Dir["#{BASE_LIB_PATH}/data_maker/**/*.rb"].sort.each do |f|
     require f
   end
 

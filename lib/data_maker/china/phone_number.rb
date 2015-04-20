@@ -1,4 +1,4 @@
-module Forge
+module DataMaker
   module China
      module PhoneNumber
       extend ModuleUtilities
@@ -22,13 +22,13 @@ module Forge
         end
 
         def mobile_prefix
-          prefix = Forge::China::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
+          prefix = DataMaker::China::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
           raise StandardError, "You're file is empty!" if prefix.length == 0
           prefix
         end
 
         def landline_prefix
-          prefix = Forge::China::PhoneNumber::LANDLINE_PHONE_PREFIXES.sample
+          prefix = DataMaker::China::PhoneNumber::LANDLINE_PHONE_PREFIXES.sample
           raise StandardError, "You're file is empty!" if prefix.length == 0
           prefix
         end
@@ -60,7 +60,7 @@ module Forge
             masks
           ].join
 
-          Forge.numerify(number)
+          DataMaker.numerify(number)
         end
 
         protected

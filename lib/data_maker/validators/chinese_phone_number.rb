@@ -1,4 +1,4 @@
-module Forge
+module DataMaker
   module Validators
     class ChinesePhoneNumber
       def initialize(number)

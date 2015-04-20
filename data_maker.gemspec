@@ -1,16 +1,16 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'forge'
+require 'data_maker'
 
 Gem::Specification.new do |gem|
-  gem.name = "forge"
-  gem.version = Forge::VERSION
+  gem.name = 'data_maker'
+  gem.version = DataMaker::VERSION
   gem.platform = Gem::Platform::RUBY
-  gem.authors = "Kareem Gan"
-  gem.email = "kareemgan@gmail.com"
-  gem.summary = "Data generator gem for aiding in development and testing for applications."
-  gem.homepage = "https://github.com/magicalbanana"
+  gem.authors = 'Kareem Gan'
+  gem.email = 'kareemgan@gmail.com'
+  gem.summary = 'Data generator gem for aiding in development and testing for applications.'
+  gem.homepage = 'https://github.com/magicalbanana/data_maker'
   gem.license = 'MIT'
 
   gem.description = <<-EOT
@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.extra_rdoc_files = ['README.md']
   # gem.bindir = 'bin'
-  # gem.executables << 'forge-console'
+  # gem.executables << 'data_maker-console'
 
   gem.add_development_dependency 'simplecov', '~> 0.8.2', '>= 0.8.2'
   gem.add_development_dependency 'coveralls', '~> 0.7.0', '>= 0.7.0' 
@@ -32,7 +32,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
 
-  gem.post_install_message = "To test out the generator execute command forge-console"
+  gem.post_install_message = "To test out the generator execute command data_maker-console"
 
   gem.required_ruby_version = '>= 1.9.3'
 

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-RSpec.describe Forge::China::PhoneNumber do
+RSpec.describe DataMaker::China::PhoneNumber do
   let(:phone_number) { described_class }
 
   describe "#self.mobile" do
     it "generates a valid mobile number" do
       number = phone_number.mobile
-      validate = Forge::Validators::ChinesePhoneNumber.new(number)
+      validate = DataMaker::Validators::ChinesePhoneNumber.new(number)
       expect(validate.valid?).to be_truthy
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe Forge::China::PhoneNumber do
 
       it "generates a valid phone number" do
         number = generate
-        validate = Forge::Validators::ChinesePhoneNumber.new(number)
+        validate = DataMaker::Validators::ChinesePhoneNumber.new(number)
         expect(validate.valid?).to be_truthy
       end
 
