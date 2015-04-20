@@ -47,8 +47,8 @@ module Forge
   end
 
   # Load all constants.
-  Dir["#{BASE_LIB_PATH}/forge/*.rb"].sort.each do |f|
-    require "forge/#{File.basename(f, '.rb')}"
+  Dir["#{BASE_LIB_PATH}/forge/**/*.rb"].sort.each do |f|
+    require f
   end
 
   def self.valid_mask?(*masks, match_with)
