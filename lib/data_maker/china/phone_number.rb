@@ -1,6 +1,6 @@
 module DataMaker
   module China
-     module PhoneNumber
+    module PhoneNumber
       extend ModuleUtilities
 
       def self.mobile
