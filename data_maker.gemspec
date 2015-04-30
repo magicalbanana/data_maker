@@ -22,22 +22,23 @@ Gem::Specification.new do |gem|
   # gem.bindir = 'bin'
   # gem.executables << 'data_maker-console'
 
-  gem.add_development_dependency 'simplecov', '~> 0.8.2', '>= 0.8.2'
-  gem.add_development_dependency 'coveralls', '~> 0.7.0', '>= 0.7.0' 
-  gem.add_development_dependency 'rake', '10.1.1', '>= 10.1.1'
-  gem.add_development_dependency 'rspec', '~> 3.1.0', '>= 3.1.0'
-  gem.add_development_dependency 'pry-byebug', '~> 3.1.0', '>= 3.1.0'
-  gem.add_development_dependency 'pry-rescue', '~> 1.4.1', '>= 1.4.1'
-  gem.add_development_dependency 'pry-stack_explorer', '~> 0.4.9.1', '>= 0.4.9.1'
+  gem.add_development_dependency 'simplecov'
+  gem.add_development_dependency 'coveralls'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'pry-byebug'
+  gem.add_development_dependency 'pry-rescue'
+  gem.add_development_dependency 'pry-stack_explorer'
+  gem.add_development_dependency 'phonelib'
 
-  gem.add_runtime_dependency 'pry', '~> 0.10.1', '>= 0.10.1'
+  gem.add_runtime_dependency 'pry'
 
   gem.post_install_message = "To test out the generator execute command data_maker-console"
 
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.require_path = 'lib'
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  gem.test_files   = `git ls-files -- {test,spec,features}/*`.split("\n")
 
   # = MANIFEST =
   gem.files = %w[
