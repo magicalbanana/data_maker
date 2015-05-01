@@ -51,6 +51,11 @@ Gem::Specification.new do |gem|
     lib/data_maker/china/address.rb
     lib/data_maker/china/name.rb
     lib/data_maker/china/phone_number.rb
+    lib/data_maker/data/china/address/city_prefixes
+    lib/data_maker/data/china/address/city_suffixes
+    lib/data_maker/data/china/address/province_abbreviations
+    lib/data_maker/data/china/address/provinces
+    lib/data_maker/data/china/address/street_suffixes
     lib/data_maker/data/china/name/first_names
     lib/data_maker/data/china/name/last_names
     lib/data_maker/data/china/phone_number/landline_phone_prefixes
