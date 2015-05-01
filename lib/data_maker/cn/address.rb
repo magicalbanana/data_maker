@@ -1,5 +1,5 @@
 module DataMaker
-  module China
+  module CN
     module Address
       def self.street_address
         "lastname and street suffix"

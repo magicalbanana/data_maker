@@ -1,5 +1,5 @@
 module DataMaker
-  module China
+  module CN
     module PhoneNumber
       extend ModuleUtilities
 
@@ -22,13 +22,13 @@ module DataMaker
         end
 
         def mobile_prefix
-          prefix = DataMaker::China::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
+          prefix = DataMaker::CN::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
           raise StandardError, "You're file is empty!" if prefix.length == 0
           prefix
         end
 
         def landline_prefix
-          prefix = DataMaker::China::PhoneNumber::LANDLINE_PHONE_PREFIXES.sample
+          prefix = DataMaker::CN::PhoneNumber::LANDLINE_PHONE_PREFIXES.sample
           raise StandardError, "You're file is empty!" if prefix.length == 0
           prefix
         end
