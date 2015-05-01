@@ -1,6 +1,7 @@
 require 'rspec'
 require 'simplecov'
 require 'coveralls'
+require 'phonelib'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
