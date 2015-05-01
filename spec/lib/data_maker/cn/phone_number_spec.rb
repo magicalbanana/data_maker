@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe DataMaker::China::PhoneNumber do
+RSpec.describe DataMaker::CN::PhoneNumber do
 
   before :each do
     Phonelib.default_country = 'CN'

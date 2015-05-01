@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe DataMaker::China::Name do
+RSpec.describe DataMaker::CN::Name do
   describe "#self.first_name" do
     it "generates a valid chinese first name" do
       first_name = described_class.first_name

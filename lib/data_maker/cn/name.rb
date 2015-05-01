@@ -1,5 +1,5 @@
 module DataMaker
-  module China
+  module CN
     module Name
       extend ModuleUtilities
 
