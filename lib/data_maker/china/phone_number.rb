@@ -9,7 +9,7 @@ module DataMaker
       end
 
       def self.landline
-        number = PhoneNumberGenerator.new(LANDLINE_FORMAT)
+        number = PhoneNumberGenerator.new("landline")
         number.generate
       end
 
@@ -69,30 +69,41 @@ module DataMaker
 
         def eleven_digit_rule?(prefix)
           [
-            10,
-            311,
-            371,
-            376,
-            377,
-            379,
-            411,
-            431,
-            432,
-            451,
-            531,
-            532,
-            551,
-            571,
-            591,
-            731,
-            754,
-            755,
-            757,
-            760,
-            769,
-            791,
-            851,
-            871
+            '10',
+            '311',
+            '371',
+            '377',
+            '379',
+            '411',
+            '431',
+            '432',
+            '451',
+            '510',
+            '512',
+            '513',
+            '515',
+            '516',
+            '519',
+            '527',
+            '531',
+            '532',
+            '551',
+            '571',
+            '573',
+            '577',
+            '579',
+            '591',
+            '595',
+            '731',
+            '754',
+            '755',
+            '757',
+            '760',
+            '769',
+            '791',
+            '851',
+            '871',
+            '898'
           ].include?(prefix)
         end
       end
