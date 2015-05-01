@@ -48,6 +48,7 @@ Gem::Specification.new do |gem|
     Rakefile
     data_maker.gemspec
     lib/data_maker.rb
+    lib/data_maker/china/address.rb
     lib/data_maker/china/name.rb
     lib/data_maker/china/phone_number.rb
     lib/data_maker/data/china/name/first_names
