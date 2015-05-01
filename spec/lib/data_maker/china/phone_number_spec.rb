@@ -1,15 +1,23 @@
 require 'spec_helper'
 
 RSpec.describe DataMaker::China::PhoneNumber do
+
+  before :each do
+    Phonelib.default_country = 'CN'
+  end
+
   describe "#self.mobile" do
     it "generates a valid mobile number" do
       number = described_class.mobile
-      validate = DataMaker::Validators::ChinesePhoneNumber.new(number)
-      expect(validate.valid?).to be_truthy
+      expect(Phonelib.valid?(number)).to be_truthy
     end
   end
 
   describe "#self.landline" do
+    it "generates a valid landline number" do
+      number = described_class.landline
+      expect(Phonelib.valid?(number)).to be_truthy
+    end
   end
 
   describe "::GeneratePhoneNumber" do
@@ -38,11 +46,10 @@ RSpec.describe DataMaker::China::PhoneNumber do
     describe "#generate_number" do
       let(:generate) { generate_phone_number.generate }
 
-      # it "generates a valid phone number" do
-      #   number = generate
-      #   validate = DataMaker::Validators::ChinesePhoneNumber.new(number)
-      #   expect(validate.valid?).to be_truthy
-      # end
+      it "generates a valid phone number" do
+        number = generate
+        expect(Phonelib.valid?(number)).to be_truthy
+      end
 
       context "when format is mobile" do
         let(:format) { "mobile" }
