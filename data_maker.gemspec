@@ -48,24 +48,24 @@ Gem::Specification.new do |gem|
     Rakefile
     data_maker.gemspec
     lib/data_maker.rb
-    lib/data_maker/china/address.rb
-    lib/data_maker/china/name.rb
-    lib/data_maker/china/phone_number.rb
+    lib/data_maker/cn/address.rb
+    lib/data_maker/cn/name.rb
+    lib/data_maker/cn/phone_number.rb
     lib/data_maker/data/china/address/city_prefixes
     lib/data_maker/data/china/address/city_suffixes
     lib/data_maker/data/china/address/province_abbreviations
     lib/data_maker/data/china/address/provinces
     lib/data_maker/data/china/address/street_suffixes
-    lib/data_maker/data/china/name/first_names
-    lib/data_maker/data/china/name/last_names
-    lib/data_maker/data/china/phone_number/landline_phone_prefixes
-    lib/data_maker/data/china/phone_number/mobile_phone_prefixes
+    lib/data_maker/data/cn/name/first_names
+    lib/data_maker/data/cn/name/last_names
+    lib/data_maker/data/cn/phone_number/landline_phone_prefixes
+    lib/data_maker/data/cn/phone_number/mobile_phone_prefixes
     lib/data_maker/utilities/array_utilities.rb
     lib/data_maker/utilities/module_utilities.rb
     lib/data_maker/validators/chinese_characters.rb
     lib/data_maker/validators/chinese_phone_number.rb
-    spec/lib/data_maker/china/name_spec.rb
-    spec/lib/data_maker/china/phone_number_spec.rb
+    spec/lib/data_maker/cn/name_spec.rb
+    spec/lib/data_maker/cn/phone_number_spec.rb
     spec/lib/data_maker/data_maker_spec.rb
     spec/lib/data_maker/support/matchers/phone_number_matcher.rb
     spec/lib/data_maker/utilities/array_utilities_spec.rb
