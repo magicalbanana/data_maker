@@ -22,16 +22,16 @@ Gem::Specification.new do |gem|
   # gem.bindir = 'bin'
   # gem.executables << 'data_maker-console'
 
-  gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'coveralls'
-  gem.add_development_dependency 'rake'
-  gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'pry-byebug'
-  gem.add_development_dependency 'pry-rescue'
-  gem.add_development_dependency 'pry-stack_explorer'
-  gem.add_development_dependency 'phonelib'
+  gem.add_development_dependency 'simplecov', '~> 0.8.0'
+  gem.add_development_dependency 'coveralls', '~> 0.7.0'
+  gem.add_development_dependency 'rake', '10.1.0'
+  gem.add_development_dependency 'rspec', '~> 3.1.0'
+  gem.add_development_dependency 'pry-byebug', '~> 3.1.0'
+  gem.add_development_dependency 'pry-rescue', '~> 1.4.0'
+  gem.add_development_dependency 'pry-stack_explorer', '~> 0.4.9.0'
+  gem.add_development_dependency 'phonelib', '~> 0.4.0'
 
-  gem.add_runtime_dependency 'pry'
+  gem.add_runtime_dependency 'pry', '~> 0.10.0'
 
   gem.post_install_message = "To test out the generator execute command data_maker-console"
 
