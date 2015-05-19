@@ -3,8 +3,6 @@ require 'data_maker/utilities/array_utilities'
 require 'data_maker/utilities/module_utilities'
 
 module DataMaker
-  VERSION = "2.2.3"
-
   BASE_LIB_PATH = File.expand_path("..", __FILE__)
 
   if I18n.respond_to?(:enforce_available_locales=)

@@ -1,7 +1,7 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'data_maker'
+require 'data_maker/version'
 
 Gem::Specification.new do |gem|
   gem.name = 'data_maker'
