@@ -4,6 +4,19 @@
 # require 'hashie'
 #
 # module Modulator
+#   def self.create_province_chinese
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.each do |key, value|
+#       results << [value["name_en"], key].join(": ")
+#     end
+#
+#     file = "provinces_chinese"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
+#   end
+#
 #   def self.create_provinces
 #     results = []
 #     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
@@ -14,6 +27,24 @@
 #     end
 #
 #     file = "provinces"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
+#   end
+#
+#   def self.create_cities_chinese
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.extend Hashie::Extensions::DeepFind
+#     china_cities = china_regions.deep_find_all("cities")
+#     china_cities.each do |city|
+#       city.each do |key, value|
+#         value.extend Hashie::Extensions::DeepFind
+#         results << [value["name_en"], key].join(": ")
+#       end
+#     end
+#
+#     file = "cities_chinese"
 #     File.open(file, "w") { |f| f.write results.join("\n") }
 #
 #     results
@@ -32,6 +63,26 @@
 #     end
 #
 #     file = "cities"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
+#   end
+#
+#   def self.create_districts_chinese
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.extend Hashie::Extensions::DeepFind
+#     china_cities = china_regions.deep_find_all("cities")
+#     china_cities.each do |city|
+#       city.each do |key, value|
+#         value.extend Hashie::Extensions::DeepFind
+#         value.deep_find("districts").each do |k, v|
+#           results << [v["name_en"], k].join(": ")
+#         end
+#       end
+#     end
+#
+#     file = "districts_chinese"
 #     File.open(file, "w") { |f| f.write results.join("\n") }
 #
 #     results
