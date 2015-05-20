@@ -218,12 +218,21 @@ RSpec.describe DataMaker::CN::Address do
         end
 
         it "sets district" do
-          expect(generate_address.district).to_not be_empty
+          city_districts = described_class.const_get("#{generate_address.city}_districts".upcase)
+          if city_districts.empty?
+            expect(generate_address.district).to be_nil
+          else
+            expect(generate_address.district).to_not be_empty
+          end
         end
 
         it "sets the district from the city" do
           city_districts = described_class.const_get("#{generate_address.city}_districts".upcase)
-          expect(city_districts.to_set).to include(generate_address.district)
+          if city_districts.empty?
+            expect(generate_address.district).to be_nil
+          else
+            expect(city_districts.to_set).to include(generate_address.district)
+          end
         end
       end
 
@@ -260,12 +269,21 @@ RSpec.describe DataMaker::CN::Address do
             end
 
             it "sets district" do
-              expect(generate_address.district).to_not be_empty
+              city_districts = described_class.const_get("#{generate_address.city}_districts".upcase)
+              if city_districts.empty?
+                expect(generate_address.district).to be_nil
+              else
+                expect(generate_address.district).to_not be_empty
+              end
             end
 
             it "sets the district from the city" do
               city_districts = described_class.const_get("#{generate_address.city}_districts".upcase)
-              expect(city_districts.to_set).to include(generate_address.district)
+              if city_districts.empty?
+                expect(generate_address.district).to be_nil
+              else
+                expect(city_districts.to_set).to include(generate_address.district)
+              end
             end
           end
         end
@@ -306,7 +324,11 @@ RSpec.describe DataMaker::CN::Address do
 
             it "sets the district from the city" do
               city_districts = described_class.const_get("#{generate_address.city}_districts".upcase)
-              expect(city_districts.to_set).to include(generate_address.district)
+              if city_districts.empty?
+                expect(generate_address.district).to be_nil
+              else
+                expect(city_districts.to_set).to include(generate_address.district)
+              end
             end
           end
         end

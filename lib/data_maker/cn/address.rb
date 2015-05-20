@@ -49,17 +49,17 @@ module DataMaker
             # Generate a random address from a province
             self.province = provinces.sample
             self.city     = province_cities.sample
-            self.district = city_districts.sample
+            self.district = city_districts.nil? ? nil : city_districts.sample
           end
 
           if options[:province] && options[:city].nil? && options[:district].nil?
             self.city     = province_cities.sample
-            self.district = city_districts.sample
+            self.district = city_districts.nil? ? nil : city_districts.sample
           end
 
           if options[:province].nil? && options[:city] && options[:district].nil?
             self.province = city_province
-            self.district = city_districts.sample
+            self.district = city_districts.nil? ? nil : city_districts.sample
           end
         end
 
@@ -177,7 +177,8 @@ module DataMaker
 
         def city_districts
           raise ArgumentError, "Please pass a city!" if city.nil?
-          DataMaker::CN::Address.const_get("#{city}_districts".upcase)
+          d = DataMaker::CN::Address.const_get("#{city}_districts".upcase)
+          d.empty? ? nil : d
         end
 
         def city_province
