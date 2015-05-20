@@ -4,6 +4,21 @@
 # require 'hashie'
 #
 # module Modulator
+#   def self.create_provinces
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.extend Hashie::Extensions::DeepFind
+#     china_cities = china_regions.deep_find_all("name_en")
+#     china_cities.each do |key, value|
+#       results << key
+#     end
+#
+#     file = "provinces"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
+#   end
+#
 #   def self.create_cities
 #     results = []
 #     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
@@ -42,6 +57,21 @@
 #     results
 #   end
 #
+#   def self.create_province_postalcode
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.each do |key, value|
+#       value.extend Hashie::Extensions::DeepFind
+#       postal_code = value.deep_find("zip_code")
+#       results << [value["name_en"], postal_code].join(" ")
+#     end
+#
+#     file = "province_postalcode"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
+#   end
+#
 #   def self.create_province_cities
 #     file_name = nil
 #     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
@@ -75,5 +105,20 @@
 #         File.open(file_name, "w") { |f| f.write results.join("\n") }
 #       end
 #     end
+#   end
+#
+#   def self.create_city_province
+#     results = []
+#     china_regions = YAML::load(File.open('lib/data_maker/data/cities.yml'))
+#     china_regions.each do |key, value|
+#       value["cities"].each do |k, v|
+#         results << [v["name_en"], value["name_en"]].join(", ")
+#       end
+#     end
+#
+#     file = "city_province"
+#     File.open(file, "w") { |f| f.write results.join("\n") }
+#
+#     results
 #   end
 # end
