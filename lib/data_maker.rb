@@ -62,6 +62,15 @@ module DataMaker
     letterify(numerify(masks))
   end
 
+  def self.translate(*args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    options[:locale] ||= DataMaker::Config.locale
+    options[:raise] = true
+    I18n.translate(*(args.push(options)))
+    rescue I18n::MissingTranslationData
+    I18n.translate(*(args.push(options.merge(locale: :en))))
+  end
+
   # Load all constants.
   Dir["#{BASE_LIB_PATH}/data_maker/**/*.rb"].sort.each do |f|
     require f
