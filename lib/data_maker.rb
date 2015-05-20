@@ -1,12 +1,28 @@
-module DataMaker
-  VERSION = "2.2.3"
+require 'i18n'
+require 'data_maker/utilities/array_utilities'
+require 'data_maker/utilities/module_utilities'
 
-  require 'data_maker/utilities/array_utilities'
-  require 'data_maker/utilities/module_utilities'
+module DataMaker
+  BASE_LIB_PATH = File.expand_path("..", __FILE__)
+
+  if I18n.respond_to?(:enforce_available_locales=)
+    I18n.enforce_available_locales = false
+  end
+
+  I18n.load_path += Dir[File.join(BASE_LIB_PATH, 'data_maker', 'locales', '*.yml')]
 
   extend ModuleUtilities
 
-  BASE_LIB_PATH = File.expand_path("..", __FILE__)
+  class Config
+    @locale = nil
+
+    class << self
+      attr_writer :locale
+      def locale
+        @locale
+      end
+    end
+  end
 
   LETTERS = [*'a'..'z']
 
@@ -44,6 +60,15 @@ module DataMaker
 
   def self.alphanumerify(masks)
     letterify(numerify(masks))
+  end
+
+  def self.translate(*args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    options[:locale] ||= DataMaker::Config.locale
+    options[:raise] = true
+    I18n.translate(*(args.push(options)))
+    rescue I18n::MissingTranslationData
+    I18n.translate(*(args.push(options.merge(locale: :en))))
   end
 
   # Load all constants.

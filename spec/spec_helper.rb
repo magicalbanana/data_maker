@@ -1,14 +1,7 @@
 require 'rspec'
 require 'simplecov'
-require 'coveralls'
+require 'data_maker'
 require 'phonelib'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-
-SimpleCov.start
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
