@@ -69,17 +69,15 @@ module DataMaker
 
         def address_string
           generate
-          translate
           build_address
         end
 
         def address_struct
           generate
-          translate
           OpenStruct.new(street_address: street_address,
-                         city:           city,
-                         district:       district,
-                         province:       province,
+                         city:           translate('city', city),
+                         district:       translate('district', district),
+                         province:       translate('province', province),
                          postal_code:    postal_code
                         )
         end
@@ -96,12 +94,9 @@ module DataMaker
 
         private
 
-        def translate
+        def translate(prefix, value)
           DataMaker::Config.locale = locale
-          values = { province: province, city: city, district: district }
-          values.each do |key, value|
-            self.send("#{key}=", DataMaker.translate(['data_maker', 'address', key, value].join(".")))
-          end
+          DataMaker.translate(['data_maker', 'address', prefix, value].join("."))
         end
 
         def validate
@@ -155,9 +150,9 @@ module DataMaker
         def build_address
           address = []
           address << street_address
-          address << city
-          address << district
-          address << province
+          address << translate('city', city)
+          address << translate('district', district) unless district.nil?
+          address << translate('province', province)
           address << postal_code
           address.compact.join(", ")
         end
