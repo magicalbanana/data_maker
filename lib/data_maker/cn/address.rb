@@ -31,13 +31,14 @@ module DataMaker
       end
 
       class GenerateAddress
-        attr_accessor :province, :city, :district, :street_address, :options
+        attr_accessor :province, :city, :district, :street_address, :locale, :options
 
         def initialize(*args)
           self.options  = (args.last.is_a?(::Hash) ? args.last : {}).delete_if { |k, v| v.nil? }
           self.district = options[:district]
           self.city     = options[:city]
           self.province = options[:province]
+          self.locale   = options[:locale] || :zh
           unless options.empty?
             validate
           end
@@ -68,11 +69,13 @@ module DataMaker
 
         def address_string
           generate
+          translate
           build_address
         end
 
         def address_struct
           generate
+          translate
           OpenStruct.new(street_address: street_address,
                          city:           city,
                          district:       district,
@@ -80,7 +83,6 @@ module DataMaker
                          postal_code:    postal_code
                         )
         end
-
 
         def postal_code
           postal_code = nil
@@ -93,6 +95,14 @@ module DataMaker
         end
 
         private
+
+        def translate
+          DataMaker::Config.locale = locale
+          values = { province: province, city: city, district: district }
+          values.each do |key, value|
+            self.send("#{key}=", DataMaker.translate(['data_maker', 'address', key, value].join(".")))
+          end
+        end
 
         def validate
           if province
