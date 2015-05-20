@@ -19,7 +19,7 @@ module DataMaker
     class << self
       attr_writer :locale
       def locale
-        @locale || I18n.locale
+        @locale
       end
     end
   end
