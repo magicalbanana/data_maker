@@ -76,7 +76,7 @@ module DataMaker
           generate
           OpenStruct.new(street_address: street_address,
                          city:           translate('city', city),
-                         district:       translate('district', district),
+                         district:       (translate('district', district) unless district.nil?),
                          province:       translate('province', province),
                          postal_code:    postal_code
                         )
