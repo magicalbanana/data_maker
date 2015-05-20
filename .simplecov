@@ -6,5 +6,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 ]
 
 SimpleCov.start do
+  add_filter 'spec'
+
   add_group 'lib/data_maker', 'data_maker'
 end
