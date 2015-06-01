@@ -29,18 +29,6 @@ RSpec.describe DataMaker::CN::NIN do
         checksum = described_class::GenerateChecksum.new(nin[0..-2])
         expect(checksum.generate).to_not eq(nin[-1])
       end
-
-      context "when valid_checksum? is false" do
-        before :each do
-          allow(DataMaker::Validators::ChineseNINValidator).to receive_message_chain('new.valid?').and_return(true)
-        end
-
-        # it "generates a nin again" do
-        #   nin = described_class::GenerateNationalIDNumber.new
-        #   expect(nin).to receive(:national_id_number).at_least(2).times
-        #   nin.generate
-        # end
-      end
     end
   end
 

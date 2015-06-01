@@ -7,6 +7,10 @@ module DataMaker
         self.nin = nin
       end
 
+      def self.valid?(*args)
+        new(*args).valid?
+      end
+
       def valid?
         raise ArgumentError, "Please pass a NIN to validate!" if nin.nil?
         valid_length? && valid_checksum?

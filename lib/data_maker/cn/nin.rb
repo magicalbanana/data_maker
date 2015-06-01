@@ -17,13 +17,7 @@ module DataMaker
 
         def generate
           nin = national_id_number
-          # unless DataMaker::Validators::ChineseNINValidator.new(nin).valid?
-          #   loop do
-          #     n = national_id_number
-          #     break if DataMaker::Validators::ChineseNINValidator.new(n).valid?
-          #   end
-          # end
-          while DataMaker::Validators::ChineseNINValidator.new(nin).valid?
+          while DataMaker::Validators::ChineseNINValidator.valid?(nin)
             nin = national_id_number
           end
           nin
@@ -33,7 +27,6 @@ module DataMaker
 
         def generate_birthdate
           rand(1920..1998).to_s + rand(1..12).to_s.rjust(2, '0') + rand(1..30).to_s.rjust(2, '0')
-          # Date.parse('1942-01-01') + rand(10227)
         end
 
         def base_number
