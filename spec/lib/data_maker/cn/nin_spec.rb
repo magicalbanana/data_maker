@@ -31,4 +31,10 @@ RSpec.describe DataMaker::CN::NIN do
       end
     end
   end
+
+  describe "::GenerateChecksum" do
+    it "generates a checksum per http://en.wikipedia.org/wiki/Resident_Identity_Card#Identity_card_number" do
+      expect(described_class::GenerateChecksum.new('123456789012345677').generate).to eq('7')
+    end
+  end
 end
