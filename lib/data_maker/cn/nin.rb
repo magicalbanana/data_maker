@@ -9,24 +9,40 @@ module DataMaker
       end
 
       class GenerateNationalIDNumber
-        attr_accessor :birthdate, :base_number, :checksum
+        attr_accessor :birthdate
 
         def initialize
           self.birthdate = generate_birthdate
         end
 
         def generate
-          base_number + DataMaker::CN::NIN::GenerateChecksum.new(base_number).generate
-        end
-
-        def base_number
-          self.base_number = rand(10 ** 6).to_s.rjust(6, '0') + birthdate + rand(10 ** 3).to_s.rjust(3, '0')
+          nin = national_id_number
+          # unless DataMaker::Validators::ChineseNINValidator.new(nin).valid?
+          #   loop do
+          #     n = national_id_number
+          #     break if DataMaker::Validators::ChineseNINValidator.new(n).valid?
+          #   end
+          # end
+          while DataMaker::Validators::ChineseNINValidator.new(nin).valid?
+            nin = national_id_number
+          end
+          nin
         end
 
         private
 
         def generate_birthdate
           rand(1920..1998).to_s + rand(1..12).to_s.rjust(2, '0') + rand(1..30).to_s.rjust(2, '0')
+          # Date.parse('1942-01-01') + rand(10227)
+        end
+
+        def base_number
+          rand(10 ** 6).to_s.rjust(6, '0') + birthdate + rand(10 ** 3).to_s.rjust(3, '0')
+        end
+
+        def national_id_number
+          self.birthdate = generate_birthdate
+          base_number + DataMaker::CN::NIN::GenerateChecksum.new(base_number).generate
         end
       end
 
