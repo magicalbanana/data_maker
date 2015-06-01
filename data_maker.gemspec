@@ -52,6 +52,7 @@ Gem::Specification.new do |gem|
     lib/data_maker.rb
     lib/data_maker/cn/address.rb
     lib/data_maker/cn/name.rb
+    lib/data_maker/cn/nin.rb
     lib/data_maker/cn/phone_number.rb
     lib/data_maker/data/cn/address/aba_districts
     lib/data_maker/data/cn/address/akesu_districts
@@ -109,6 +110,7 @@ Gem::Specification.new do |gem|
     lib/data_maker/data/cn/address/chuxiong_districts
     lib/data_maker/data/cn/address/chuzhou_districts
     lib/data_maker/data/cn/address/cities
+    lib/data_maker/data/cn/address/city_no_districts
     lib/data_maker/data/cn/address/city_provinces
     lib/data_maker/data/cn/address/dalian_districts
     lib/data_maker/data/cn/address/dalibaizu_districts
@@ -450,10 +452,12 @@ Gem::Specification.new do |gem|
     lib/data_maker/utilities/array_utilities.rb
     lib/data_maker/utilities/module_utilities.rb
     lib/data_maker/validators/chinese_characters.rb
+    lib/data_maker/validators/chinese_nin_validator.rb
     lib/data_maker/validators/chinese_phone_number.rb
     lib/data_maker/version.rb
     spec/lib/data_maker/cn/address_spec.rb
     spec/lib/data_maker/cn/name_spec.rb
+    spec/lib/data_maker/cn/nin_spec.rb
     spec/lib/data_maker/cn/phone_number_spec.rb
     spec/lib/data_maker/data_maker_spec.rb
     spec/lib/data_maker/utilities/array_utilities_spec.rb
