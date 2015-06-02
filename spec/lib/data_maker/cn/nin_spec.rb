@@ -24,17 +24,10 @@ RSpec.describe DataMaker::CN::NIN do
         expect(generate.length).to eq(18)
       end
 
-      it "generates a valid checksum using DataMaker::CN::GenerateChecksum" do
+      it "generates a valid national id number" do
         nin = generate
-        checksum = described_class::GenerateChecksum.new(nin[0..-2])
-        expect(checksum.generate).to_not eq(nin[-1])
+        expect(DataMaker::Validators::ChineseNINValidator.valid?(nin)).to be_truthy
       end
-    end
-  end
-
-  describe "::GenerateChecksum" do
-    it "generates a checksum per http://en.wikipedia.org/wiki/Resident_Identity_Card#Identity_card_number" do
-      expect(described_class::GenerateChecksum.new('123456789012345677').generate).to eq('7')
     end
   end
 end
