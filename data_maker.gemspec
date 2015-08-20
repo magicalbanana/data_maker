@@ -51,6 +51,7 @@ Gem::Specification.new do |gem|
     data_maker.gemspec
     lib/data_maker.rb
     lib/data_maker/cn/address.rb
+    lib/data_maker/cn/employment.rb
     lib/data_maker/cn/name.rb
     lib/data_maker/cn/nin.rb
     lib/data_maker/cn/phone_number.rb
@@ -442,20 +443,22 @@ Gem::Specification.new do |gem|
     lib/data_maker/data/cn/address/zunyi_districts
     lib/data_maker/data/cn/cities_chinese
     lib/data_maker/data/cn/districts_chinese
+    lib/data_maker/data/cn/employment/job_titles
     lib/data_maker/data/cn/name/first_names
     lib/data_maker/data/cn/name/last_names
     lib/data_maker/data/cn/phone_number/landline_phone_prefixes
     lib/data_maker/data/cn/phone_number/mobile_phone_prefixes
     lib/data_maker/data/cn/provinces_chinese
-    lib/data_maker/locales/zh.yml
+    lib/data_maker/locales/zh.employment.yml
+    lib/data_maker/locales/zh.regions.yml
     lib/data_maker/modulator.rb
     lib/data_maker/utilities/array_utilities.rb
     lib/data_maker/utilities/module_utilities.rb
     lib/data_maker/validators/chinese_characters.rb
     lib/data_maker/validators/chinese_nin_validator.rb
-    lib/data_maker/validators/chinese_phone_number.rb
     lib/data_maker/version.rb
     spec/lib/data_maker/cn/address_spec.rb
+    spec/lib/data_maker/cn/employment_spec.rb
     spec/lib/data_maker/cn/name_spec.rb
     spec/lib/data_maker/cn/nin_spec.rb
     spec/lib/data_maker/cn/phone_number_spec.rb
