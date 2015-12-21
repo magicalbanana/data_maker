@@ -446,7 +446,7 @@ Gem::Specification.new do |gem|
     lib/data_maker/data/cn/employment/job_titles
     lib/data_maker/data/cn/name/first_names
     lib/data_maker/data/cn/name/last_names
-    lib/data_maker/data/cn/phone_number/landline_phone_prefixes
+    lib/data_maker/data/cn/phone_number/fixed_line_phone_prefixes
     lib/data_maker/data/cn/phone_number/mobile_phone_prefixes
     lib/data_maker/data/cn/provinces_chinese
     lib/data_maker/locales/zh.employment.yml
