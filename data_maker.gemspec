@@ -29,11 +29,11 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pry-byebug', '~> 3.1.0'
   gem.add_development_dependency 'pry-rescue', '~> 1.4.0'
   gem.add_development_dependency 'pry-stack_explorer', '~> 0.4.9.0'
-  gem.add_development_dependency 'phonelib', '~> 0.4.0'
   gem.add_development_dependency 'hashie', '~> 3.4.1'
 
   gem.add_runtime_dependency 'i18n', '~> 0.7.0'
   gem.add_runtime_dependency 'pry', '~> 0.10.0'
+  gem.add_runtime_dependency 'phonelib', '~> 0.5.4'
 
   gem.post_install_message = "To test out the generator execute command data_maker-console"
 
