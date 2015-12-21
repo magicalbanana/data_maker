@@ -4,16 +4,17 @@ module DataMaker
       extend ModuleUtilities
 
       def self.mobile
-        number = PhoneNumberGenerator.new("mobile")
-        number.generate
+        loop do
+          number = PhoneNumberGenerator.generate("mobile")
+          break number if Phonelib.valid_for_country?(number, 'CN')
+        end
       end
 
-      def self.landline
-        number = PhoneNumberGenerator.new("landline")
-        number.generate
-      end
-
-      def self.phone_number
+      def self.fixed_line
+        loop do
+          number = PhoneNumberGenerator.generate("fixed_line")
+          break number if Phonelib.valid_for_country?(number, 'CN')
+        end
       end
 
       class PhoneNumberGenerator
@@ -21,16 +22,9 @@ module DataMaker
           self.format = format
         end
 
-        def mobile_prefix
-          prefix = DataMaker::CN::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
-          raise StandardError, "You're file is empty!" if prefix.length == 0
-          prefix
-        end
-
-        def landline_prefix
-          prefix = DataMaker::CN::PhoneNumber::LANDLINE_PHONE_PREFIXES.sample
-          raise StandardError, "You're file is empty!" if prefix.length == 0
-          prefix
+        def self.generate(format)
+          inst = new(format)
+          inst.generate
         end
 
         def generate_masks(mask_length = 1)
@@ -41,16 +35,14 @@ module DataMaker
         def generate
           if format == "mobile"
             phone_prefix = mobile_prefix
-            phone_number_max_length = 11
+            max_length = 11
             prefix_length = phone_prefix.length
-            mask_length = phone_number_max_length - prefix_length
+            mask_length = max_length - prefix_length
           end
 
-          if format == "landline"
-            phone_prefix = landline_prefix
-            phone_number_max_length = eleven_digit_rule?(phone_prefix) ? 11 : 10
-            prefix_length = phone_prefix.length
-            mask_length = phone_number_max_length - prefix_length
+          if format == "fixed_line"
+            phone_prefix, length = *landline_prefix.split(",")
+            mask_length = length.to_i
           end
 
           masks = generate_masks(mask_length)
@@ -67,44 +59,14 @@ module DataMaker
 
         attr_accessor :format
 
-        def eleven_digit_rule?(prefix)
-          [
-            '10',
-            '311',
-            '371',
-            '377',
-            '379',
-            '411',
-            '431',
-            '432',
-            '451',
-            '510',
-            '512',
-            '513',
-            '515',
-            '516',
-            '519',
-            '527',
-            '531',
-            '532',
-            '551',
-            '571',
-            '573',
-            '577',
-            '579',
-            '591',
-            '595',
-            '731',
-            '754',
-            '755',
-            '757',
-            '760',
-            '769',
-            '791',
-            '851',
-            '871',
-            '898'
-          ].include?(prefix)
+        private
+
+        def mobile_prefix
+          DataMaker::CN::PhoneNumber::MOBILE_PHONE_PREFIXES.sample
+        end
+
+        def landline_prefix
+          DataMaker::CN::PhoneNumber::FIXED_LINE_PHONE_PREFIXES.sample
         end
       end
     end

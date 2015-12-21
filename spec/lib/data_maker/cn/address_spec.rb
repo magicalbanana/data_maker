@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'ostruct'
 
 RSpec.describe DataMaker::CN::Address do
   describe "#self.street_address" do
