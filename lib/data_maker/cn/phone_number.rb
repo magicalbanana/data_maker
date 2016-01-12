@@ -1,3 +1,5 @@
+require 'phonelib'
+
 module DataMaker
   module CN
     module PhoneNumber
